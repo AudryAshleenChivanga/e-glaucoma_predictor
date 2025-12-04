@@ -49,10 +49,18 @@
     <main class="main">
         <!-- HOME SECTION - Full Page Hero -->
         <section class="page-section hero-section" id="home">
-            <div class="hero-background">
-                <img src="../images/eye-examining.avif" alt="Eye examination" class="hero-bg-image">
-                <div class="hero-overlay"></div>
+            <!-- Animated Background -->
+            <div class="hero-bg-design">
+                <div class="gradient-sphere sphere-1"></div>
+                <div class="gradient-sphere sphere-2"></div>
+                <div class="gradient-sphere sphere-3"></div>
+                <div class="grid-pattern"></div>
+                <div class="floating-particles">
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
             </div>
+            
             <div class="container hero-container">
                 <div class="hero-content">
                     <div class="hero-badge">
@@ -98,14 +106,92 @@
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="eye-scanner">
-                        <div class="scanner-ring ring-1"></div>
-                        <div class="scanner-ring ring-2"></div>
-                        <div class="scanner-ring ring-3"></div>
-                        <div class="scanner-center">
-                            <img src="../images/browneye.avif" alt="Retinal scan" class="retina-image">
+                    <!-- SVG Eye Illustration -->
+                    <div class="eye-illustration">
+                        <svg viewBox="0 0 400 400" class="eye-svg">
+                            <!-- Outer glow -->
+                            <defs>
+                                <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" style="stop-color:#0D9488;stop-opacity:0.4"/>
+                                    <stop offset="100%" style="stop-color:#0D9488;stop-opacity:0"/>
+                                </radialGradient>
+                                <radialGradient id="irisGradient" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" style="stop-color:#0F766E"/>
+                                    <stop offset="50%" style="stop-color:#0D9488"/>
+                                    <stop offset="100%" style="stop-color:#14B8A6"/>
+                                </radialGradient>
+                                <radialGradient id="pupilGradient" cx="30%" cy="30%" r="50%">
+                                    <stop offset="0%" style="stop-color:#1E293B"/>
+                                    <stop offset="100%" style="stop-color:#0A0F1A"/>
+                                </radialGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            
+                            <!-- Background glow -->
+                            <circle cx="200" cy="200" r="180" fill="url(#eyeGlow)" class="eye-glow-circle"/>
+                            
+                            <!-- Scanning rings -->
+                            <circle cx="200" cy="200" r="160" fill="none" stroke="#0D9488" stroke-width="1" opacity="0.3" class="scan-ring-1"/>
+                            <circle cx="200" cy="200" r="140" fill="none" stroke="#0D9488" stroke-width="1" opacity="0.2" stroke-dasharray="10 5" class="scan-ring-2"/>
+                            <circle cx="200" cy="200" r="120" fill="none" stroke="#14B8A6" stroke-width="1" opacity="0.3" class="scan-ring-3"/>
+                            
+                            <!-- Eye shape (almond) -->
+                            <path d="M40 200 Q200 80 360 200 Q200 320 40 200" fill="#0A0F1A" stroke="#14B8A6" stroke-width="2" filter="url(#glow)" class="eye-shape"/>
+                            
+                            <!-- Sclera (white of eye) -->
+                            <ellipse cx="200" cy="200" rx="100" ry="85" fill="#E2E8F0" class="sclera"/>
+                            
+                            <!-- Iris -->
+                            <circle cx="200" cy="200" r="60" fill="url(#irisGradient)" class="iris"/>
+                            
+                            <!-- Iris pattern -->
+                            <g class="iris-pattern" opacity="0.5">
+                                <circle cx="200" cy="200" r="55" fill="none" stroke="#0F766E" stroke-width="0.5"/>
+                                <circle cx="200" cy="200" r="45" fill="none" stroke="#0F766E" stroke-width="0.5"/>
+                                <circle cx="200" cy="200" r="35" fill="none" stroke="#0F766E" stroke-width="0.5"/>
+                            </g>
+                            
+                            <!-- Pupil -->
+                            <circle cx="200" cy="200" r="25" fill="url(#pupilGradient)" class="pupil"/>
+                            
+                            <!-- Light reflection -->
+                            <ellipse cx="185" cy="185" rx="8" ry="6" fill="white" opacity="0.8" class="reflection"/>
+                            <circle cx="210" cy="195" r="3" fill="white" opacity="0.5"/>
+                            
+                            <!-- Scan line -->
+                            <line x1="40" y1="200" x2="360" y2="200" stroke="#14B8A6" stroke-width="2" opacity="0.8" class="eye-scan-line"/>
+                            
+                            <!-- Data points -->
+                            <g class="data-points">
+                                <circle cx="120" cy="180" r="4" fill="#F59E0B" class="data-point"/>
+                                <circle cx="280" cy="190" r="4" fill="#F59E0B" class="data-point"/>
+                                <circle cx="200" cy="140" r="4" fill="#10B981" class="data-point"/>
+                                <circle cx="160" cy="220" r="4" fill="#10B981" class="data-point"/>
+                                <circle cx="240" cy="230" r="4" fill="#8B5CF6" class="data-point"/>
+                            </g>
+                        </svg>
+                        
+                        <!-- Floating labels -->
+                        <div class="eye-labels">
+                            <div class="eye-label label-1">
+                                <span class="label-dot"></span>
+                                <span class="label-text">Optic Nerve Analysis</span>
+                            </div>
+                            <div class="eye-label label-2">
+                                <span class="label-dot"></span>
+                                <span class="label-text">IOP Detection</span>
+                            </div>
+                            <div class="eye-label label-3">
+                                <span class="label-dot"></span>
+                                <span class="label-text">Retinal Mapping</span>
+                            </div>
                         </div>
-                        <div class="scan-line"></div>
                     </div>
                 </div>
             </div>
@@ -118,7 +204,7 @@
         <!-- PREDICT SECTION - Full Page -->
         <section class="page-section predict-section" id="predict">
             <div class="section-background">
-                <img src="../images/eye glasses.avif" alt="Medical technology" class="section-bg-image">
+                <img src="images/eye glasses.avif" alt="Medical technology" class="section-bg-image">
                 <div class="section-overlay"></div>
             </div>
             <div class="container">
@@ -178,20 +264,20 @@
                     <div class="sample-images">
                         <h4>Sample Retinal Images</h4>
                         <div class="sample-grid">
-                            <div class="sample-item" data-sample="../images/eye.jpg">
-                                <img src="../images/eye.jpg" alt="Normal retina">
+                            <div class="sample-item" data-sample="images/eye.jpg">
+                                <img src="images/eye.jpg" alt="Normal retina">
                                 <span class="sample-label">Normal Eye</span>
                             </div>
-                            <div class="sample-item" data-sample="../images/glaucoma.jpg">
-                                <img src="../images/glaucoma.jpg" alt="Glaucoma signs">
+                            <div class="sample-item" data-sample="images/glaucoma.jpg">
+                                <img src="images/glaucoma.jpg" alt="Glaucoma signs">
                                 <span class="sample-label">Glaucoma</span>
                             </div>
-                            <div class="sample-item" data-sample="../images/diseased_eye.webp">
-                                <img src="../images/diseased_eye.webp" alt="Diseased eye">
+                            <div class="sample-item" data-sample="images/diseased_eye.webp">
+                                <img src="images/diseased_eye.webp" alt="Diseased eye">
                                 <span class="sample-label">Diseased Eye</span>
                             </div>
-                            <div class="sample-item" data-sample="../images/001.jpg">
-                                <img src="../images/001.jpg" alt="Retinal scan">
+                            <div class="sample-item" data-sample="images/001.jpg">
+                                <img src="images/001.jpg" alt="Retinal scan">
                                 <span class="sample-label">Retinal Scan</span>
                             </div>
                         </div>
@@ -276,7 +362,7 @@
         <!-- ABOUT SECTION - Full Page -->
         <section class="page-section about-section" id="about">
             <div class="section-background">
-                <img src="../images/browneye.avif" alt="Medical research" class="section-bg-image">
+                <img src="images/browneye.avif" alt="Medical research" class="section-bg-image">
                 <div class="section-overlay"></div>
             </div>
             <div class="container">
@@ -292,7 +378,7 @@
                         <div class="step-number">01</div>
                         <div class="step-content">
                             <div class="step-image">
-                                <img src="../images/eye glasses.avif" alt="Upload process">
+                                <img src="images/eye glasses.avif" alt="Upload process">
                             </div>
                             <div class="step-info">
                                 <h3>Upload Image</h3>
@@ -304,7 +390,7 @@
                         <div class="step-number">02</div>
                         <div class="step-content">
                             <div class="step-image">
-                                <img src="../images/eye.jpg" alt="AI Analysis">
+                                <img src="images/eye.jpg" alt="AI Analysis">
                             </div>
                             <div class="step-info">
                                 <h3>AI Analysis</h3>
@@ -316,7 +402,7 @@
                         <div class="step-number">03</div>
                         <div class="step-content">
                             <div class="step-image">
-                                <img src="../images/glaucoma.jpg" alt="Results">
+                                <img src="images/glaucoma.jpg" alt="Results">
                             </div>
                             <div class="step-info">
                                 <h3>Instant Results</h3>
@@ -369,7 +455,7 @@
 
                 <div class="glaucoma-info">
                     <div class="info-image">
-                        <img src="../images/diseased_eye.webp" alt="Eye care">
+                        <img src="images/diseased_eye.webp" alt="Eye care">
                     </div>
                     <div class="info-text">
                         <h3>Why Early Detection Matters</h3>
@@ -388,7 +474,7 @@
         <!-- ADMIN SECTION - Full Page -->
         <section class="page-section admin-section" id="admin">
             <div class="section-background">
-                <img src="../images/001.jpg" alt="Dashboard analytics" class="section-bg-image">
+                <img src="images/001.jpg" alt="Dashboard analytics" class="section-bg-image">
                 <div class="section-overlay dark"></div>
             </div>
             <div class="container">
@@ -617,9 +703,6 @@
                     <a href="#predict">Predict</a>
                     <a href="#about">About</a>
                     <a href="#admin">Admin</a>
-                </div>
-                <div class="footer-credit">
-                    Developed by <strong>Joseph Murasa</strong>
                 </div>
                 <p class="footer-disclaimer">
                     This tool is for educational and screening purposes only. Not a substitute for professional medical advice.

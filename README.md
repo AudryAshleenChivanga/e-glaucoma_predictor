@@ -1,12 +1,23 @@
-# 🔬 Glaucoma E-Predictor
+# Glaucoma E-Predictor
 
 An AI-powered web application for early glaucoma screening from retinal fundus images. This full-stack machine learning system combines a deep learning CNN model with a modern web interface for instant predictions and continuous model improvement.
 
-**Developed by Joseph Murasa**
+**Made by Murasa Joseph in collaboration with Audry Ashleen**
 
 ![Glaucoma E-Predictor](https://img.shields.io/badge/AI-Medical%20Imaging-teal) ![Python](https://img.shields.io/badge/Python-3.9+-blue) ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.15-orange) ![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green)
 
-## 🌟 Features
+## Screenshots
+
+### Homepage
+![Homepage](frontend/images/homepage.png)
+
+### How It Works
+![How It Works](frontend/images/how_it_works.png)
+
+### Prediction Interface
+![Prediction](frontend/images/predict.png)
+
+## Features
 
 - **Real-time Prediction**: Upload retinal images and receive instant glaucoma risk assessments
 - **Deep Learning Model**: Custom CNN architecture trained on medical imaging data
@@ -15,7 +26,7 @@ An AI-powered web application for early glaucoma screening from retinal fundus i
 - **Modern UI**: Clean, responsive dashboard with visual risk gauges and detailed results
 - **Secure Configuration**: Environment-based settings with hidden API endpoints
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 glaucoma-e-predictor/
@@ -29,7 +40,8 @@ glaucoma-e-predictor/
 │   ├── index.html           # Main dashboard interface
 │   ├── styles.css           # Modern styling
 │   ├── app.js               # Client-side logic
-│   └── config.js            # API configuration (gitignored)
+│   ├── config.js            # API configuration (gitignored)
+│   └── images/              # Application images
 ├── models/                  # Saved model files
 ├── data/                    # Training dataset
 ├── scripts/
@@ -37,7 +49,7 @@ glaucoma-e-predictor/
 └── README.md
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -93,7 +105,7 @@ python -m http.server 3000
 
 Then visit `http://localhost:3000`
 
-## 📊 API Endpoints
+## API Endpoints
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
@@ -121,7 +133,7 @@ print(f"Risk Level: {result['risk_level']}")
 print(f"Probability: {result['percentage']}%")
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -155,26 +167,26 @@ window.API_CONFIG = {
 };
 ```
 
-## 📁 Kaggle Setup
+## Kaggle Setup
 
 1. Create a Kaggle account at [kaggle.com](https://www.kaggle.com)
-2. Go to Account Settings → API → Create New Token
+2. Go to Account Settings > API > Create New Token
 3. Place the downloaded `kaggle.json` in:
    - Windows: `C:\Users\<Username>\.kaggle\kaggle.json`
    - Linux/Mac: `~/.kaggle/kaggle.json`
 
-## 🧠 Model Architecture
+## Model Architecture
 
 The CNN architecture is optimized for retinal image analysis:
 
-- **Input**: 224×224×3 RGB images
+- **Input**: 224x224x3 RGB images
 - **Architecture**: 4 convolutional blocks with batch normalization
 - **Regularization**: Dropout layers (0.25-0.5)
 - **Output**: Sigmoid activation for binary classification
 - **Optimizer**: Adam with learning rate scheduling
 - **Metrics**: Accuracy, AUC, Precision, Recall
 
-## 📈 Training
+## Training
 
 ### Through the UI
 
@@ -196,20 +208,20 @@ curl -X POST "http://localhost:8000/retrain?epochs=20"
 curl "http://localhost:8000/training-status"
 ```
 
-## ⚠️ Medical Disclaimer
+## Medical Disclaimer
 
 **This tool is for educational and screening purposes only.** It should not be used as a substitute for professional medical diagnosis. Always consult with a qualified ophthalmologist for definitive glaucoma diagnosis and treatment.
 
 Glaucoma is one of the leading causes of preventable blindness worldwide. Early detection through regular eye examinations is crucial for preventing vision loss.
 
-## 🔒 Security
+## Security
 
 - API configuration files are gitignored
 - Environment variables for sensitive settings
 - CORS configuration for controlled access
 - Input validation on all endpoints
 
-## 🛠️ Development
+## Development
 
 ### Running Tests
 
@@ -228,7 +240,7 @@ black backend/
 flake8 backend/
 ```
 
-## 📦 Deployment
+## Deployment
 
 ### Docker
 
@@ -251,31 +263,20 @@ CMD ["python", "backend/main.py"]
 - **Frontend**: Deploy to Vercel, Netlify, or GitHub Pages
 - **Model**: Store on S3 or cloud storage for production
 
-## 🤝 Contributing
+## Authors
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+**Made by Murasa Joseph in collaboration with Audry Ashleen**
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-
-**Joseph Murasa** - Main Developer & Contributor
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Dataset: [Glaucoma Detection Dataset](https://www.kaggle.com/datasets/sshikamaru/glaucoma-detection) on Kaggle
 - TensorFlow/Keras for deep learning framework
 - FastAPI for the modern Python web framework
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ---
 
-<p align="center">
-  Built with ❤️ by Joseph Murasa for early glaucoma detection and prevention
-</p>
-
+Built for early glaucoma detection and prevention

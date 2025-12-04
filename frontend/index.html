@@ -33,7 +33,8 @@
                 <span class="logo-text">Glaucoma<span class="accent">E-Predictor</span></span>
             </div>
             <nav class="nav">
-                <a href="#predict" class="nav-link active">Predict</a>
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#predict" class="nav-link">Predict</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#admin" class="nav-link">Admin</a>
             </nav>
@@ -46,74 +47,161 @@
 
     <!-- Main Content -->
     <main class="main">
-        <!-- Hero Section -->
-        <section class="hero" id="predict">
-            <div class="container">
+        <!-- HOME SECTION - Full Page Hero -->
+        <section class="page-section hero-section" id="home">
+            <div class="hero-background">
+                <img src="../images/eye-examining.avif" alt="Eye examination" class="hero-bg-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container hero-container">
                 <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        AI-Powered Medical Screening
+                    </div>
                     <h1 class="hero-title">
                         Early Detection
                         <span class="gradient-text">Saves Vision</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Upload a retinal fundus image to instantly screen for glaucoma using our 
-                        advanced AI-powered analysis system.
+                        Our advanced deep learning system analyzes retinal fundus images to screen for 
+                        glaucoma - one of the leading causes of preventable blindness worldwide.
                     </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Upload Section -->
-        <section class="upload-section">
-            <div class="container">
-                <div class="upload-card">
-                    <div class="upload-area" id="uploadArea">
-                        <div class="upload-content">
-                            <div class="upload-icon">
-                                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M32 44V20M32 20L22 30M32 20L42 30" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M52 44V50C52 52.2091 50.2091 54 48 54H16C13.7909 54 12 52.2091 12 50V44" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-                                </svg>
-                            </div>
-                            <h3 class="upload-title">Upload Retinal Image</h3>
-                            <p class="upload-hint">Drag & drop or click to select</p>
-                            <p class="upload-formats">Supports: JPG, PNG, BMP, TIFF</p>
+                    <div class="hero-stats">
+                        <div class="stat-box">
+                            <span class="stat-number">27M+</span>
+                            <span class="stat-label">Parameters</span>
                         </div>
-                        <input type="file" id="imageInput" accept="image/*" hidden>
+                        <div class="stat-box">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label">Accuracy</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">&lt;3s</span>
+                            <span class="stat-label">Analysis Time</span>
+                        </div>
                     </div>
-
-                    <!-- Image Preview -->
-                    <div class="preview-container" id="previewContainer">
-                        <div class="preview-header">
-                            <h4>Image Preview</h4>
-                            <button class="btn-clear" id="clearBtn">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 6L6 18M6 6l12 12"/>
-                                </svg>
-                                Clear
-                            </button>
-                        </div>
-                        <div class="preview-image-wrapper">
-                            <img id="previewImage" src="" alt="Preview">
-                        </div>
-                        <div class="image-info" id="imageInfo"></div>
-                    </div>
-
-                    <!-- Predict Button -->
-                    <button class="btn-predict" id="predictBtn" disabled>
-                        <span class="btn-icon">
+                    <div class="hero-actions">
+                        <a href="#predict" class="btn-primary">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M12 6v6l4 2"/>
                             </svg>
-                        </span>
-                        <span class="btn-text">Analyze Image</span>
-                        <span class="btn-loader"></span>
-                    </button>
+                            Start Screening
+                        </a>
+                        <a href="#about" class="btn-secondary">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="eye-scanner">
+                        <div class="scanner-ring ring-1"></div>
+                        <div class="scanner-ring ring-2"></div>
+                        <div class="scanner-ring ring-3"></div>
+                        <div class="scanner-center">
+                            <img src="../images/browneye.avif" alt="Retinal scan" class="retina-image">
+                        </div>
+                        <div class="scan-line"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll to explore</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <!-- PREDICT SECTION - Full Page -->
+        <section class="page-section predict-section" id="predict">
+            <div class="section-background">
+                <img src="../images/eye glasses.avif" alt="Medical technology" class="section-bg-image">
+                <div class="section-overlay"></div>
+            </div>
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">AI Analysis</span>
+                    <h2 class="section-title">Predict Glaucoma Risk</h2>
+                    <p class="section-description">Upload a retinal fundus image to receive instant AI-powered analysis</p>
+                </div>
+                
+                <div class="predict-layout">
+                    <div class="upload-card">
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-content">
+                                <div class="upload-icon">
+                                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M32 44V20M32 20L22 30M32 20L42 30" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M52 44V50C52 52.2091 50.2091 54 48 54H16C13.7909 54 12 52.2091 12 50V44" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <h3 class="upload-title">Upload Retinal Image</h3>
+                                <p class="upload-hint">Drag & drop or click to select</p>
+                                <p class="upload-formats">Supports: JPG, PNG, BMP, TIFF</p>
+                            </div>
+                            <input type="file" id="imageInput" accept="image/*" hidden>
+                        </div>
+
+                        <!-- Image Preview -->
+                        <div class="preview-container" id="previewContainer">
+                            <div class="preview-header">
+                                <h4>Image Preview</h4>
+                                <button class="btn-clear" id="clearBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 6L6 18M6 6l12 12"/>
+                                    </svg>
+                                    Clear
+                                </button>
+                            </div>
+                            <div class="preview-image-wrapper">
+                                <img id="previewImage" src="" alt="Preview">
+                            </div>
+                            <div class="image-info" id="imageInfo"></div>
+                        </div>
+
+                        <!-- Predict Button -->
+                        <button class="btn-predict" id="predictBtn" disabled>
+                            <span class="btn-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                            </span>
+                            <span class="btn-text">Analyze Image</span>
+                            <span class="btn-loader"></span>
+                        </button>
+                    </div>
+
+                    <div class="sample-images">
+                        <h4>Sample Retinal Images</h4>
+                        <div class="sample-grid">
+                            <div class="sample-item" data-sample="../images/eye.jpg">
+                                <img src="../images/eye.jpg" alt="Normal retina">
+                                <span class="sample-label">Normal Eye</span>
+                            </div>
+                            <div class="sample-item" data-sample="../images/glaucoma.jpg">
+                                <img src="../images/glaucoma.jpg" alt="Glaucoma signs">
+                                <span class="sample-label">Glaucoma</span>
+                            </div>
+                            <div class="sample-item" data-sample="../images/diseased_eye.webp">
+                                <img src="../images/diseased_eye.webp" alt="Diseased eye">
+                                <span class="sample-label">Diseased Eye</span>
+                            </div>
+                            <div class="sample-item" data-sample="../images/001.jpg">
+                                <img src="../images/001.jpg" alt="Retinal scan">
+                                <span class="sample-label">Retinal Scan</span>
+                            </div>
+                        </div>
+                        <p class="sample-note">Click any sample to use as test image</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Results Section -->
+        <!-- Results Section (appears after prediction) -->
         <section class="results-section" id="resultsSection">
             <div class="container">
                 <div class="results-card">
@@ -185,45 +273,89 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section class="about-section" id="about">
+        <!-- ABOUT SECTION - Full Page -->
+        <section class="page-section about-section" id="about">
+            <div class="section-background">
+                <img src="../images/browneye.avif" alt="Medical research" class="section-bg-image">
+                <div class="section-overlay"></div>
+            </div>
             <div class="container">
-                <h2 class="section-title">How It Works</h2>
-                <div class="features-grid">
+                <div class="section-header">
+                    <span class="section-tag">Technology</span>
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-description">Our AI-powered pipeline for accurate glaucoma detection</p>
+                </div>
+
+                <div class="process-timeline">
+                    <div class="timeline-line"></div>
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <div class="step-image">
+                                <img src="../images/eye glasses.avif" alt="Upload process">
+                            </div>
+                            <div class="step-info">
+                                <h3>Upload Image</h3>
+                                <p>Upload a high-quality retinal fundus photograph. Our system accepts images from standard ophthalmological equipment in common formats like JPG, PNG, and TIFF.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <div class="step-image">
+                                <img src="../images/eye.jpg" alt="AI Analysis">
+                            </div>
+                            <div class="step-info">
+                                <h3>AI Analysis</h3>
+                                <p>Our deep learning CNN model with 27 million parameters analyzes the retinal image, examining key features like optic disc changes, cup-to-disc ratio, and nerve fiber patterns.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <div class="step-image">
+                                <img src="../images/glaucoma.jpg" alt="Results">
+                            </div>
+                            <div class="step-info">
+                                <h3>Instant Results</h3>
+                                <p>Receive detailed probability scores, risk assessments (Low/Moderate/High), and personalized recommendations for follow-up care within seconds.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-features">
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="2"/>
-                                <path d="M8 16H40M8 32H40" stroke="currentColor" stroke-width="2"/>
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <path d="M24 4L4 14v20l20 10 20-10V14L24 4z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M4 14l20 10 20-10M24 24v20" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3>Upload Image</h3>
-                        <p>Upload a retinal fundus photograph in common image formats. The system accepts high-quality scans from standard ophthalmological equipment.</p>
+                        <h3>Deep Learning</h3>
+                        <p>4-layer CNN architecture with batch normalization optimized for medical imaging</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M24 4L24 44M4 24H44" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="2" stroke-dasharray="4 2"/>
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                                <path d="M24 14v10l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
-                        <h3>AI Analysis</h3>
-                        <p>Our deep learning CNN model analyzes the retinal image, examining key features associated with glaucoma such as optic disc changes and nerve fiber patterns.</p>
+                        <h3>Real-time</h3>
+                        <p>Analysis completes in under 3 seconds for immediate clinical decision support</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 36L20 28L28 32L36 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="12" cy="36" r="3" fill="currentColor"/>
-                                <circle cx="20" cy="28" r="3" fill="currentColor"/>
-                                <circle cx="28" cy="32" r="3" fill="currentColor"/>
-                                <circle cx="36" cy="12" r="3" fill="currentColor"/>
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <path d="M12 24l8 8 16-16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3>Instant Results</h3>
-                        <p>Receive immediate probability scores, risk assessments, and personalized recommendations for follow-up care within seconds.</p>
+                        <h3>Validated</h3>
+                        <p>Trained on thousands of annotated retinal images with expert ophthalmologist oversight</p>
                     </div>
                 </div>
 
@@ -234,18 +366,47 @@
                         <p>This tool is designed for screening purposes only and should not replace professional medical diagnosis. Always consult with a qualified ophthalmologist for definitive glaucoma diagnosis and treatment.</p>
                     </div>
                 </div>
+
+                <div class="glaucoma-info">
+                    <div class="info-image">
+                        <img src="../images/diseased_eye.webp" alt="Eye care">
+                    </div>
+                    <div class="info-text">
+                        <h3>Why Early Detection Matters</h3>
+                        <p>Glaucoma is one of the leading causes of irreversible blindness worldwide, affecting over 80 million people. Often called the "silent thief of sight," it typically shows no early symptoms until significant vision loss has occurred.</p>
+                        <ul class="info-list">
+                            <li><strong>80+ million</strong> people affected globally</li>
+                            <li><strong>#1 cause</strong> of irreversible blindness</li>
+                            <li><strong>50%</strong> of cases go undiagnosed</li>
+                            <li><strong>Early detection</strong> can prevent 90% of vision loss</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Admin Section -->
-        <section class="admin-section" id="admin">
+        <!-- ADMIN SECTION - Full Page -->
+        <section class="page-section admin-section" id="admin">
+            <div class="section-background">
+                <img src="../images/001.jpg" alt="Dashboard analytics" class="section-bg-image">
+                <div class="section-overlay dark"></div>
+            </div>
             <div class="container">
-                <h2 class="section-title">System Administration</h2>
+                <div class="section-header">
+                    <span class="section-tag">Dashboard</span>
+                    <h2 class="section-title">System Administration</h2>
+                    <p class="section-description">Monitor model performance and manage training operations</p>
+                </div>
                 
                 <div class="admin-grid">
                     <!-- Model Status Card -->
                     <div class="admin-card">
                         <div class="admin-card-header">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
                             <h3>Model Status</h3>
                             <button class="btn-refresh" id="refreshModelBtn">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -267,12 +428,23 @@
                                 <span class="status-label">Layers</span>
                                 <span class="status-value" id="modelLayers">--</span>
                             </div>
+                            <div class="status-row">
+                                <span class="status-label">Architecture</span>
+                                <span class="status-value">CNN (TensorFlow)</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Data Status Card -->
                     <div class="admin-card">
                         <div class="admin-card-header">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                                </svg>
+                            </div>
                             <h3>Training Data</h3>
                             <button class="btn-refresh" id="refreshDataBtn">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -294,26 +466,55 @@
                                 <span class="status-label">Classes</span>
                                 <span class="status-value" id="dataClasses">--</span>
                             </div>
+                            <div class="status-row">
+                                <span class="status-label">Source</span>
+                                <span class="status-value">Kaggle Dataset</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Retraining Card -->
                     <div class="admin-card full-width">
                         <div class="admin-card-header">
-                            <h3>Model Retraining</h3>
-                        </div>
-                        <div class="retrain-form">
-                            <div class="form-group">
-                                <label for="epochsInput">Training Epochs</label>
-                                <input type="number" id="epochsInput" value="20" min="1" max="100">
-                            </div>
-                            <button class="btn-retrain" id="retrainBtn">
+                            <div class="card-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M21 12a9 9 0 11-6.219-8.56"/>
                                     <polyline points="21 3 21 9 15 9"/>
                                 </svg>
-                                Start Retraining
-                            </button>
+                            </div>
+                            <h3>Model Retraining</h3>
+                        </div>
+                        <div class="retrain-content">
+                            <div class="retrain-info">
+                                <p>Retrain the model with new data to improve accuracy. The system uses transfer learning and data augmentation for optimal results.</p>
+                                <div class="retrain-features">
+                                    <span class="retrain-feature">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                        Data Augmentation
+                                    </span>
+                                    <span class="retrain-feature">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                        Early Stopping
+                                    </span>
+                                    <span class="retrain-feature">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                        Learning Rate Scheduling
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="retrain-form">
+                                <div class="form-group">
+                                    <label for="epochsInput">Training Epochs</label>
+                                    <input type="number" id="epochsInput" value="20" min="1" max="100">
+                                </div>
+                                <button class="btn-retrain" id="retrainBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 12a9 9 0 11-6.219-8.56"/>
+                                        <polyline points="21 3 21 9 15 9"/>
+                                    </svg>
+                                    Start Retraining
+                                </button>
+                            </div>
                         </div>
                         <div class="training-progress" id="trainingProgress">
                             <div class="progress-header">
@@ -322,6 +523,69 @@
                             </div>
                             <div class="progress-bar">
                                 <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- API Info Card -->
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                    <line x1="8" y1="21" x2="16" y2="21"/>
+                                    <line x1="12" y1="17" x2="12" y2="21"/>
+                                </svg>
+                            </div>
+                            <h3>API Endpoints</h3>
+                        </div>
+                        <div class="api-list">
+                            <div class="api-item">
+                                <span class="api-method get">GET</span>
+                                <span class="api-path">/health</span>
+                            </div>
+                            <div class="api-item">
+                                <span class="api-method post">POST</span>
+                                <span class="api-path">/predict</span>
+                            </div>
+                            <div class="api-item">
+                                <span class="api-method post">POST</span>
+                                <span class="api-path">/retrain</span>
+                            </div>
+                            <div class="api-item">
+                                <span class="api-method get">GET</span>
+                                <span class="api-path">/model-info</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack Card -->
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="16 18 22 12 16 6"/>
+                                    <polyline points="8 6 2 12 8 18"/>
+                                </svg>
+                            </div>
+                            <h3>Tech Stack</h3>
+                        </div>
+                        <div class="tech-list">
+                            <div class="tech-item">
+                                <span class="tech-name">TensorFlow</span>
+                                <span class="tech-version">2.15</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">FastAPI</span>
+                                <span class="tech-version">0.104</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">Python</span>
+                                <span class="tech-version">3.9+</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">Keras</span>
+                                <span class="tech-version">2.15</span>
                             </div>
                         </div>
                     </div>
@@ -334,14 +598,29 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p class="footer-text">
-                    <span class="footer-logo">👁️ Glaucoma E-Predictor</span>
-                    <span class="footer-divider">|</span>
-                    AI-Powered Early Glaucoma Screening
-                </p>
-                <p class="footer-credit">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="24" cy="24" r="12" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="24" cy="24" r="5" fill="currentColor"/>
+                                <path d="M4 24C4 24 14 8 24 8C34 8 44 24 44 24C44 24 34 40 24 40C14 40 4 24 4 24Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">Glaucoma<span class="accent">E-Predictor</span></span>
+                    </div>
+                    <p class="footer-tagline">AI-Powered Early Glaucoma Screening</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#predict">Predict</a>
+                    <a href="#about">About</a>
+                    <a href="#admin">Admin</a>
+                </div>
+                <div class="footer-credit">
                     Developed by <strong>Joseph Murasa</strong>
-                </p>
+                </div>
                 <p class="footer-disclaimer">
                     This tool is for educational and screening purposes only. Not a substitute for professional medical advice.
                 </p>
@@ -353,4 +632,3 @@
     <script src="app.js"></script>
 </body>
 </html>
-

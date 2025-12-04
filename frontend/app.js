@@ -461,6 +461,70 @@ function init() {
     console.log('🔬 Glaucoma E-Predictor initialized');
 }
 
+// Handle sample image clicks
+function initSampleImages() {
+    const sampleItems = document.querySelectorAll('.sample-item');
+    
+    sampleItems.forEach(item => {
+        item.addEventListener('click', async () => {
+            const imgSrc = item.dataset.sample || item.querySelector('img').src;
+            
+            try {
+                // Fetch the image as a blob
+                const response = await fetch(imgSrc);
+                const blob = await response.blob();
+                
+                // Create a File object from the blob
+                const filename = imgSrc.split('/').pop();
+                const file = new File([blob], filename, { type: blob.type });
+                
+                // Use this file for prediction
+                selectedFile = file;
+                showPreview(file);
+                
+                // Visual feedback
+                sampleItems.forEach(s => s.style.borderColor = 'transparent');
+                item.style.borderColor = 'var(--primary)';
+                
+            } catch (error) {
+                console.error('Error loading sample image:', error);
+                alert('Failed to load sample image. Please try uploading manually.');
+            }
+        });
+    });
+}
+
+// Smooth scroll for navigation
+function initNavigation() {
+    // Update active nav link on scroll
+    const sections = document.querySelectorAll('.page-section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (window.pageYOffset >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
 // Start the app
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+    initSampleImages();
+    initNavigation();
+});
 

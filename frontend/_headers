@@ -1,10 +1,17 @@
-/*
-  Cache-Control: no-cache
-  Access-Control-Allow-Origin: *
+/styles.css
+  Content-Type: text/css; charset=utf-8
+
+/app.js
+  Content-Type: text/javascript; charset=utf-8
+
+/config.js
+  Content-Type: text/javascript; charset=utf-8
 
 /*.css
-  Content-Type: text/css
+  Content-Type: text/css; charset=utf-8
 
 /*.js
-  Content-Type: application/javascript
+  Content-Type: text/javascript; charset=utf-8
 
+/*
+  Access-Control-Allow-Origin: *

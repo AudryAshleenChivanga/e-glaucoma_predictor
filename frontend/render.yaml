@@ -1,0 +1,15 @@
+routes:
+  - type: rewrite
+    source: "/*"
+    destination: /index.html
+headers:
+  - path: "/*.css"
+    name: Content-Type
+    value: text/css; charset=utf-8
+  - path: "/*.js"
+    name: Content-Type
+    value: text/javascript; charset=utf-8
+  - path: "/*"
+    name: Access-Control-Allow-Origin
+    value: "*"
+

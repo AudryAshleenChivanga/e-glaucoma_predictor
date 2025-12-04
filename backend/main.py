@@ -9,6 +9,10 @@ from typing import Optional
 from datetime import datetime
 from contextlib import asynccontextmanager
 
+# Optimize TensorFlow memory usage BEFORE importing TensorFlow
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Reduce TF logging
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'  # Disable oneDNN
+
 from fastapi import FastAPI, File, UploadFile, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -82,10 +86,9 @@ training_status = {
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Lifecycle manager for the FastAPI application."""
-    # Startup
-    print("[*] Initializing Glaucoma E-Predictor...")
-    initialize_model()
-    print("[+] Model initialized and ready!")
+    # Startup - Don't load model at startup to save memory
+    print("[*] Glaucoma E-Predictor API starting...")
+    print("[+] Model will be loaded on first prediction request (lazy loading)")
     yield
     # Shutdown
     print("[*] Shutting down Glaucoma E-Predictor...")
@@ -164,13 +167,12 @@ async def predict(file: UploadFile = File(...)):
         image = load_image_from_bytes(image_bytes)
         processed_image = preprocess_image(image)
         
-        # Get model and make prediction
+        # Get model and make prediction (lazy loading)
         model = get_model()
         if model.model is None:
-            raise HTTPException(
-                status_code=503,
-                detail="Model not ready. Please wait for initialization or train the model."
-            )
+            print("[*] Loading model for first prediction...")
+            model.build_model()
+            print("[+] Model loaded successfully!")
         
         prediction = model.predict(processed_image)
         

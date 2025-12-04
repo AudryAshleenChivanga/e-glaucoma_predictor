@@ -3,10 +3,6 @@ CNN Model for Glaucoma Detection from Retinal Images.
 """
 import os
 import numpy as np
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras import layers, models, optimizers, callbacks
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from typing import Tuple, Optional, Dict, Any
 import json
 from datetime import datetime
@@ -16,6 +12,29 @@ from config import (
     BATCH_SIZE, EPOCHS, LEARNING_RATE, VALIDATION_SPLIT,
     DATA_DIR
 )
+
+# Lazy import TensorFlow to save memory at startup
+tf = None
+keras = None
+layers = None
+models = None
+optimizers = None
+callbacks = None
+ImageDataGenerator = None
+
+def _import_tensorflow():
+    """Lazily import TensorFlow when needed."""
+    global tf, keras, layers, models, optimizers, callbacks, ImageDataGenerator
+    if tf is None:
+        import tensorflow as _tf
+        tf = _tf
+        keras = tf.keras
+        layers = tf.keras.layers
+        models = tf.keras.models
+        optimizers = tf.keras.optimizers
+        callbacks = tf.keras.callbacks
+        from tensorflow.keras.preprocessing.image import ImageDataGenerator as _IDG
+        ImageDataGenerator = _IDG
 
 
 class GlaucomaModel:
@@ -27,11 +46,13 @@ class GlaucomaModel:
         self.input_shape = (*MODEL_INPUT_SIZE, MODEL_CHANNELS)
         self.training_history: Dict[str, Any] = {}
         
-    def build_model(self) -> keras.Model:
+    def build_model(self):
         """
         Build a CNN architecture for glaucoma classification.
         Uses a custom architecture optimized for retinal image analysis.
         """
+        _import_tensorflow()
+        
         model = models.Sequential([
             # Input layer
             layers.Input(shape=self.input_shape),
@@ -109,6 +130,7 @@ class GlaucomaModel:
         Returns:
             True if model loaded successfully, False otherwise
         """
+        _import_tensorflow()
         try:
             if os.path.exists(self.model_path):
                 self.model = keras.models.load_model(self.model_path)
@@ -177,7 +199,7 @@ class GlaucomaModel:
             "confidence": round(abs(probability - 0.5) * 2 * 100, 2)  # Confidence score
         }
     
-    def create_data_generators(self, data_dir: str) -> Tuple[ImageDataGenerator, ImageDataGenerator]:
+    def create_data_generators(self, data_dir: str):
         """
         Create data generators for training and validation.
         
@@ -187,6 +209,8 @@ class GlaucomaModel:
         Returns:
             Tuple of (train_generator, validation_generator)
         """
+        _import_tensorflow()
+        
         # Training data augmentation
         train_datagen = ImageDataGenerator(
             rescale=1./255,

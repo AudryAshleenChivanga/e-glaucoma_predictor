@@ -2,8 +2,6 @@
 
 An AI-powered web application for early glaucoma screening from retinal fundus images. This full-stack machine learning system combines a deep learning CNN model with a modern web interface for instant predictions and continuous model improvement.
 
-**Made by Murasa Joseph in collaboration with Audry Ashleen**
-
 ![Glaucoma E-Predictor](https://img.shields.io/badge/AI-Medical%20Imaging-teal) ![Python](https://img.shields.io/badge/Python-3.9+-blue) ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.15-orange) ![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green)
 
 ## Screenshots
@@ -262,10 +260,6 @@ CMD ["python", "backend/main.py"]
 - **Backend**: Deploy to Render, Railway, or AWS Lambda
 - **Frontend**: Deploy to Vercel, Netlify, or GitHub Pages
 - **Model**: Store on S3 or cloud storage for production
-
-## Authors
-
-**Made by Murasa Joseph in collaboration with Audry Ashleen**
 
 ## Acknowledgments
 

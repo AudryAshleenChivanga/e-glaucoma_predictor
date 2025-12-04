@@ -1,0 +1,10 @@
+/*
+  Cache-Control: no-cache
+  Access-Control-Allow-Origin: *
+
+/*.css
+  Content-Type: text/css
+
+/*.js
+  Content-Type: application/javascript
+

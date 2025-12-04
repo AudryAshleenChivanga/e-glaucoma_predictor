@@ -5,8 +5,8 @@
 
 window.API_CONFIG = {
     // For local development: 'http://localhost:8000'
-    // For Render deployment: 'https://glaucoma-predictor-api.onrender.com'
-    BASE_URL: 'https://glaucoma-predictor-api.onrender.com',
+    // For production: 'https://e-glaucoma-predictor.onrender.com'
+    BASE_URL: 'https://e-glaucoma-predictor.onrender.com',
     
     // API version
     VERSION: '1.0.0'

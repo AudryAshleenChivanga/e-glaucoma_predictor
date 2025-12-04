@@ -112,21 +112,21 @@ app.add_middleware(
 )
 
 
-@app.get("/", response_model=HealthResponse)
+@app.get("/")
 async def root():
-    """Root endpoint - health check."""
-    model = get_model()
-    return HealthResponse(
-        status="healthy",
-        model_ready=model.model is not None,
-        timestamp=datetime.now().isoformat(),
-        version="1.0.0"
-    )
+    """Root endpoint - fast health check."""
+    return {"status": "healthy", "message": "Glaucoma E-Predictor API"}
 
 
-@app.get("/health", response_model=HealthResponse)
+@app.get("/health")
 async def health_check():
-    """Health check endpoint."""
+    """Health check endpoint - fast response for Render."""
+    return {"status": "healthy", "version": "1.0.0"}
+
+
+@app.get("/status", response_model=HealthResponse)
+async def full_status():
+    """Full status endpoint with model info."""
     model = get_model()
     return HealthResponse(
         status="healthy",
